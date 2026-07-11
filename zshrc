@@ -259,6 +259,13 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'            # Go to previous directory
+alias fzfp='fzf --preview="cat {}"'
+# Simple fzf with cat preview
+alias fzfp='fzf --preview="cat {}"'
+# fzf with bat for syntax-highlighted preview
+alias fzfb='fzf --preview="bat --color=always {}"'
+# Open selected file in nvim with bat preview
+alias fzfn='nvim $(fzf --preview="bat --color=always {}")'
 
 # ── Listing ──────────────────────────────────────────────────────
 # Use eza if available, fall back to ls
@@ -356,3 +363,11 @@ alias pk='pkill'
 # ══════════════════════════════════════════════════════════════════
 PROMPT=''   # Clear before starship takes over
 eval "$(starship init zsh)"
+
+
+#####yt-dlp
+# Audio (best quality Opus)
+alias yta='yt-dlp -ciw -f bestaudio -x --audio-format opus --embed-metadata --embed-thumbnail'
+# Video (best quality MKV)
+alias ytv='yt-dlp -ciw -f "bestvideo+bestaudio/best" --merge-output-format mkv'
+export PATH="$HOME/.npm-global/bin:$PATH"
